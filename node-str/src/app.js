@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const app = express();
 
 app.use(express.json());
 
 // Conectar ao banco
-mongoose.connect('mongodb+srv://balta:balta@cluster0-niiny.mongodb.net/baltaio?retryWrites=true&w=majority', { 
+mongoose.connect(config.connectionString, { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
